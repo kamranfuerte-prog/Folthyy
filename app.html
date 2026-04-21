@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Folthy – Track Today 🌟</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles/dashboard.css"/>
+</head>
+<body>
+
+<!-- LOGIN OVERLAY -->
+<div class="login-overlay" id="login-overlay">
+  <div class="login-modal">
+    <div class="login-logo">🥗 Folthy</div>
+    <h2>Welcome back! 🌟</h2>
+    <p>Sign in to start your healthy food journey.</p>
+    <button class="login-btn-google" id="login-google">
+      <svg width="20" height="20" viewBox="0 0 18 18"><path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z" fill="#4285F4"/><path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 009 18z" fill="#34A853"/><path d="M3.964 10.712c-.18-.54-.282-1.117-.282-1.712s.102-1.173.282-1.712V4.956H.957a8.996 8.996 0 000 8.088l3.007-2.332z" fill="#FBBC05"/><path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 00.957 4.956L3.964 7.29C4.672 3.163 6.656 3.58 9 3.58z" fill="#EA4335"/></svg>
+      Login with Google
+    </button>
+  </div>
+</div>
+
+<!-- MOOD CHECK-IN OVERLAY -->
+<div class="mood-overlay" id="mood-overlay">
+  <div class="mood-modal">
+    <button class="mood-skip" id="mood-skip">✕</button>
+    <p class="mood-question">Good <span id="time-greeting">morning</span>! How are you feeling? 🌟</p>
+    <div class="mood-selected-blob" id="selected-blob">
+      <svg viewBox="0 0 120 120" id="big-blob-svg">
+        <path d="M60,6 C85,6 110,28 108,58 C106,86 84,114 60,114 C36,114 14,86 12,58 C10,28 35,6 60,6Z" fill="#C7CEEA" id="big-blob-path"/>
+        <circle cx="44" cy="56" r="5" fill="#2d2d2d" id="eye-l"/>
+        <circle cx="76" cy="56" r="5" fill="#2d2d2d" id="eye-r"/>
+        <path d="M44,78 Q60,88 76,78" stroke="#2d2d2d" stroke-width="4" fill="none" stroke-linecap="round" id="mouth"/>
+      </svg>
+    </div>
+    <p class="mood-slide-hint">Tap to select your mood</p>
+    <div class="mood-pills" id="mood-pills">
+      <div class="mood-pill active" data-color="#FFB3C6" data-mood="happy" data-label="Happy 😊">😊</div>
+      <div class="mood-pill" data-color="#FFD93D" data-mood="energized" data-label="Energized ⚡">⚡</div>
+      <div class="mood-pill" data-color="#B5EAD7" data-mood="calm" data-label="Calm 🌿">🌿</div>
+      <div class="mood-pill" data-color="#C7CEEA" data-mood="normal" data-label="Normal 😐">😐</div>
+      <div class="mood-pill" data-color="#FFDAC1" data-mood="tired" data-label="Tired 😴">😴</div>
+      <div class="mood-pill" data-color="#FF9AA2" data-mood="stressed" data-label="Stressed 😤">😤</div>
+    </div>
+    <button class="mood-ok" id="mood-ok">OKAY →</button>
+  </div>
+</div>
+
+<!-- APP SHELL -->
+<div class="app" id="app">
+
+  <!-- BOTTOM NAV (mobile) -->
+  <nav class="bottom-nav">
+    <button class="bnav-item active" data-page="today" id="bn-today">
+      <span>🏠</span><small>Today</small>
+    </button>
+    <button class="bnav-item" data-page="goals" id="bn-goals">
+      <span>🎯</span><small>Goals</small>
+    </button>
+    <button class="bnav-item" data-page="history" id="bn-history">
+      <span>📅</span><small>History</small>
+    </button>
+    <button class="bnav-item" data-page="insights" id="bn-insights">
+      <span>📊</span><small>Insights</small>
+    </button>
+  </nav>
+
+  <!-- SIDEBAR (desktop) -->
+  <aside class="sidebar">
+    <div class="sb-logo">
+      <span>🥗</span><span>Folthy</span>
+    </div>
+    <div class="sb-mood-chip" id="sb-mood-chip">😊 Happy</div>
+    <nav class="sb-nav">
+      <button class="sb-item active" data-page="today">🏠 Today</button>
+      <button class="sb-item" data-page="goals">🎯 Goals</button>
+      <button class="sb-item" data-page="history">📅 History</button>
+      <button class="sb-item" data-page="insights">📊 Insights</button>
+    </nav>
+    <div class="sb-bottom">
+      <div class="sb-user">
+        <img src="https://i.pravatar.cc/36?img=5" alt="user"/>
+        <div><strong>Alex</strong><small>Pro Plan ✨</small></div>
+      </div>
+      <button class="sb-logout" id="logout-btn">🚪 Log Out</button>
+      <a href="index.html" class="sb-back">← Back to site</a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- ===== TODAY PAGE ===== -->
+    <div class="page active" id="page-today">
+      <div class="page-wrap">
+
+        <!-- Header -->
+        <div class="today-header">
+          <div>
+            <h1 id="today-title">Today 🌟</h1>
+            <p id="today-date-label" class="today-date"></p>
+          </div>
+          <div class="today-header-right">
+            <div class="streak-badge" id="streak-badge">🔥 <span id="streak-count">5</span></div>
+            <div class="mood-badge" id="mood-badge">😊 Happy</div>
+          </div>
+        </div>
+
+        <!-- CALORIE RING + MACROS -->
+        <div class="summary-card">
+          <div class="ring-wrap">
+            <svg class="cal-ring" viewBox="0 0 140 140">
+              <circle cx="70" cy="70" r="56" fill="none" stroke="#f0f0f0" stroke-width="12"/>
+              <circle cx="70" cy="70" r="56" fill="none" stroke="url(#rg)" stroke-width="12"
+                stroke-linecap="round" stroke-dasharray="352" id="cal-ring-circle"
+                stroke-dashoffset="352" transform="rotate(-90 70 70)"/>
+              <defs>
+                <linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#FF6B6B"/>
+                  <stop offset="100%" stop-color="#FFD93D"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div class="ring-center">
+              <span class="ring-cal" id="ring-cal">0</span>
+              <span class="ring-sub">/ <span id="ring-goal">2000</span> kcal</span>
+              <span class="ring-left" id="ring-left">2000 left</span>
+            </div>
+          </div>
+          <div class="macro-pills">
+            <div class="mpill mpill--p">
+              <span class="mpill-icon">🥩</span>
+              <span class="mpill-val" id="mp-protein">0</span>
+              <span class="mpill-lbl">g protein</span>
+            </div>
+            <div class="mpill mpill--c">
+              <span class="mpill-icon">🌾</span>
+              <span class="mpill-val" id="mp-carbs">0</span>
+              <span class="mpill-lbl">g carbs</span>
+            </div>
+            <div class="mpill mpill--f">
+              <span class="mpill-icon">🫐</span>
+              <span class="mpill-val" id="mp-fat">0</span>
+              <span class="mpill-lbl">g fat</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- JOURNAL INPUT -->
+        <div class="journal-card">
+          <div class="journal-label">📝 What did you eat?</div>
+          <div class="journal-input-row">
+            <input type="text" id="meal-input" class="journal-input"
+              placeholder="e.g. oatmeal with berries, 2 eggs scrambled…" autocomplete="off"/>
+            <button class="journal-add" id="add-btn">Add →</button>
+          </div>
+          <div class="quick-adds">
+            <span class="qa-label">Quick add:</span>
+            <button class="qa-chip" data-food="Apple">🍎 Apple</button>
+            <button class="qa-chip" data-food="Banana">🍌 Banana</button>
+            <button class="qa-chip" data-food="Coffee">☕ Coffee</button>
+            <button class="qa-chip" data-food="Greek yogurt">🥛 Yogurt</button>
+            <button class="qa-chip" data-food="Chicken breast">🍗 Chicken</button>
+            <button class="qa-chip" data-food="Brown rice">🍚 Rice</button>
+          </div>
+        </div>
+
+        <!-- MEAL SECTIONS -->
+        <div class="meals-sections" id="meals-sections">
+          <div class="meal-section" id="section-breakfast">
+            <div class="meal-section-head"><span>🌅 Breakfast</span><span class="ms-cal" id="bk-cal">0 kcal</span></div>
+            <div class="meal-entries" id="entries-breakfast">
+              <div class="meal-empty">No meals logged yet today. Type something above! 📝</div>
+            </div>
+          </div>
+          <div class="meal-section" id="section-lunch">
+            <div class="meal-section-head"><span>☀️ Lunch</span><span class="ms-cal" id="ln-cal">0 kcal</span></div>
+            <div class="meal-entries" id="entries-lunch">
+              <div class="meal-empty">Hungry for lunch? 🥗</div>
+            </div>
+          </div>
+          <div class="meal-section" id="section-dinner">
+            <div class="meal-section-head"><span>🌙 Dinner</span><span class="ms-cal" id="dn-cal">0 kcal</span></div>
+            <div class="meal-entries" id="entries-dinner">
+              <div class="meal-empty">Time for a healthy dinner! 🌙</div>
+            </div>
+          </div>
+          <div class="meal-section" id="section-snack">
+            <div class="meal-section-head"><span>🍎 Snacks</span><span class="ms-cal" id="sn-cal">0 kcal</span></div>
+            <div class="meal-entries" id="entries-snack">
+              <div class="meal-empty">Need a quick snack? 🍎</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WATER TRACKER -->
+        <div class="water-card">
+          <div class="water-header">
+            <span>💧 Water intake</span>
+            <span id="water-label">Stay hydrated! 💧</span>
+          </div>
+          <div class="water-drops-row" id="water-drops-row"></div>
+          <button class="water-add-btn" id="water-add-btn">+ Add glass</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== GOALS PAGE ===== -->
+    <div class="page" id="page-goals">
+      <div class="page-wrap">
+        <h2 class="page-title">My Goals 🎯</h2>
+        <div class="goals-list">
+          <div class="goal-item">
+            <div class="goal-top">
+              <span>🔥 Daily Calories</span>
+              <button class="goal-edit" data-goal="calories">Edit</button>
+            </div>
+            <div class="goal-nums"><span id="g-cal-curr">0</span> / <span id="g-cal-target" class="goal-target">2,000</span> kcal</div>
+            <div class="goal-bar"><div class="goal-fill gf--coral" id="gf-cal"></div></div>
+          </div>
+          <div class="goal-item">
+            <div class="goal-top"><span>🥩 Protein</span><button class="goal-edit" data-goal="protein">Edit</button></div>
+            <div class="goal-nums"><span id="g-p-curr">0</span> / <span id="g-p-target" class="goal-target">100</span>g</div>
+            <div class="goal-bar"><div class="goal-fill gf--green" id="gf-p"></div></div>
+          </div>
+          <div class="goal-item">
+            <div class="goal-top"><span>🌾 Carbs</span><button class="goal-edit" data-goal="carbs">Edit</button></div>
+            <div class="goal-nums"><span id="g-c-curr">0</span> / <span id="g-c-target" class="goal-target">250</span>g</div>
+            <div class="goal-bar"><div class="goal-fill gf--yellow" id="gf-c"></div></div>
+          </div>
+          <div class="goal-item">
+            <div class="goal-top"><span>🫐 Fat</span><button class="goal-edit" data-goal="fat">Edit</button></div>
+            <div class="goal-nums"><span id="g-f-curr">0</span> / <span id="g-f-target" class="goal-target">65</span>g</div>
+            <div class="goal-bar"><div class="goal-fill gf--blue" id="gf-f"></div></div>
+          </div>
+          <div class="goal-item">
+            <div class="goal-top"><span>💧 Water</span><button class="goal-edit" data-goal="water">Edit</button></div>
+            <div class="goal-nums"><span id="g-w-curr">0</span> / <span id="g-w-target" class="goal-target">8</span> glasses</div>
+            <div class="goal-bar"><div class="goal-fill gf--blue" id="gf-w"></div></div>
+          </div>
+        </div>
+        <div class="goals-mascot">
+          <svg viewBox="0 0 100 100" width="80"><path d="M50,5 C72,5 92,22 90,50 C88,76 70,95 50,95 C30,95 12,76 10,50 C8,22 28,5 50,5Z" fill="#6BCB77"/><circle cx="38" cy="46" r="5" fill="#fff"/><circle cx="62" cy="46" r="5" fill="#fff"/><circle cx="40" cy="46" r="2" fill="#2d2d2d"/><circle cx="64" cy="46" r="2" fill="#2d2d2d"/><path d="M38,66 Q50,76 62,66" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+          <p>You're doing amazing!<br/>Keep it up 💪</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== HISTORY PAGE ===== -->
+    <div class="page" id="page-history">
+      <div class="page-wrap">
+        <h2 class="page-title">History 📅</h2>
+        <div class="history-list" id="history-list">
+          <div class="history-empty">
+            <p>Your food journey starts here! 📅</p>
+            <button class="btn-main" onclick="document.querySelector('[data-page=today]').click()">Start Tracking</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== INSIGHTS PAGE ===== -->
+    <div class="page" id="page-insights">
+      <div class="page-wrap">
+        <h2 class="page-title">Insights 📊</h2>
+        <div class="insight-empty" id="insight-empty">
+          <p>Log more data to see your weekly trends. 📊</p>
+        </div>
+        <div class="insight-content" id="insight-content" style="display:none;">
+          <div class="insight-week-chart">
+            <h3>This week's calories</h3>
+            <div class="week-bars" id="week-bars"></div>
+          </div>
+          <div class="insight-cards">
+            <div class="ic-card ic--yellow">
+              <div class="ic-icon">📈</div>
+              <div class="ic-label">Avg daily calories</div>
+              <div class="ic-val">1,940</div>
+            </div>
+            <div class="ic-card ic--green">
+              <div class="ic-icon">💪</div>
+              <div class="ic-label">Avg protein / day</div>
+              <div class="ic-val">86g</div>
+            </div>
+            <div class="ic-card ic--coral">
+              <div class="ic-icon">🔥</div>
+              <div class="ic-label">Best streak</div>
+              <div class="ic-val">14 days</div>
+            </div>
+            <div class="ic-card ic--blue">
+              <div class="ic-icon">🍎</div>
+              <div class="ic-label">Most logged food</div>
+              <div class="ic-val">Chicken 🍗</div>
+            </div>
+          </div>
+          <div class="nutrient-alert">
+            <div class="na-icon">⚠️</div>
+            <div>
+              <strong>Low on Vitamin D</strong>
+              <p>You've been under 30% of daily Vitamin D this week. Try adding salmon, fortified milk, or eggs.</p>
+            </div>
+          </div>
+          <div class="nutrient-alert na--green">
+            <div class="na-icon">✅</div>
+            <div>
+              <strong>Protein goal crushed!</strong>
+              <p>You hit your protein goal 5 out of 7 days this week. Keep it up!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- MEAL TYPE PICKER MODAL -->
+<div class="picker-overlay" id="picker-overlay">
+  <div class="picker-modal">
+    <p class="picker-title">Add to which meal? 🍽️</p>
+    <p class="picker-food-name" id="picker-food-name"></p>
+    <div class="picker-options">
+      <button class="pick-btn" data-type="Breakfast">🌅 Breakfast</button>
+      <button class="pick-btn" data-type="Lunch">☀️ Lunch</button>
+      <button class="pick-btn" data-type="Dinner">🌙 Dinner</button>
+      <button class="pick-btn" data-type="Snack">🍎 Snack</button>
+    </div>
+    <button class="pick-cancel" id="pick-cancel">Cancel</button>
+  </div>
+</div>
+
+<script type="module" src="scripts/dashboard.js"></script>
+</body>
+</html>
