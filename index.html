@@ -3,254 +3,154 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Folthy – Your Calorie Bestie 🌟</title>
-  <meta name="description" content="Track calories like texting a friend. Type what you ate, Folthy figures out the rest. Simple, fun, emoji-powered food tracking."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <title>Folthy – Simply Smarter Calorie Tracking</title>
+  <meta name="description" content="Track your nutrition with the elegance and simplicity of Apple Notes. Functional, beautiful, and private."/>
   <link rel="stylesheet" href="styles/main.css"/>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav" id="nav">
+<!-- NAVIGATION -->
+<nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <div class="logo-blob">🥗</div>
-      <span>Folthy</span>
+      <span>🥗</span> Folthy
     </a>
     <ul class="nav-links">
-      <li><a href="#how">How it works</a></li>
-      <li><a href="#mood">Mood + food</a></li>
       <li><a href="#features">Features</a></li>
+      <li><a href="#how">Experience</a></li>
+      <li><a href="app.html">Dashboard</a></li>
     </ul>
     <div class="nav-right">
-      <a href="app.html" class="nav-cta">Start tracking 🚀</a>
-      <a href="app.html?login=google" class="nav-cta nav-cta--google" style="background:#fff; color:#2d2d2d; border:1px solid #ddd; display:flex; align-items:center; gap:8px;">
-        <svg width="18" height="18" viewBox="0 0 18 18"><path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z" fill="#4285F4"/><path d="M9 18c2.43 0 4.467-.806 5.956-2.184l-2.908-2.258c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 009 18z" fill="#34A853"/><path d="M3.964 10.712c-.18-.54-.282-1.117-.282-1.712s.102-1.173.282-1.712V4.956H.957a8.996 8.996 0 000 8.088l3.007-2.332z" fill="#FBBC05"/><path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 00.957 4.956L3.964 7.29C4.672 3.163 6.656 3.58 9 3.58z" fill="#EA4335"/></svg>
-        Login
-      </a>
+      <a href="app.html?login=google" class="btn-sm btn-secondary">Login</a>
+      <a href="app.html" class="btn-sm btn-primary">Try Free</a>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <div class="hero-tag">✨ Free calorie tracker</div>
-    <h1>Your calorie<br/><span class="hero-highlight">bestie</span> is here 🌟</h1>
-    <p>Type what you ate like a text message.<br/>Folthy figures out the calories — magically.</p>
-    <div class="hero-btns">
-      <a href="app.html" class="btn-main">Start tracking free →</a>
-      <a href="#how" class="btn-ghost">See how it works</a>
-    </div>
-    <div class="hero-stats">
-      <div class="hstat"><span>🔥</span><strong>2,100</strong><small>avg kcal/day</small></div>
-      <div class="hstat"><span>🥗</span><strong>500K+</strong><small>foods in DB</small></div>
-      <div class="hstat"><span>😊</span><strong>12K+</strong><small>happy users</small></div>
-    </div>
+<header class="hero container">
+  <div class="hero-tag">New for iPhone and Web</div>
+  <h1>Precision tracking.<br/>Minimal effort.</h1>
+  <p>Log your meals as easily as jotting down a note. No barcodes, no clutter. Just clear insights for a healthier you.</p>
+  <div class="hero-btns">
+    <a href="app.html" class="btn-lg btn-primary">Start Tracking Now</a>
+    <a href="#features" class="btn-lg btn-secondary" style="background:none; border: 1px solid #ddd;">Learn More</a>
   </div>
-  <div class="hero-right">
-    <div class="phone-mockup">
-      <div class="phone-top">
-        <span class="phone-time">9:41</span>
-        <span class="phone-icons">▶ ◉ ▮</span>
-      </div>
-      <div class="phone-header">
-        <div class="phone-blob-sm">🌿</div>
-        <span class="phone-today">Today</span>
-        <span class="phone-streak">🔥 5</span>
-      </div>
-      <div class="phone-entries">
-        <div class="phone-entry"><span>🥣 Oatmeal with berries</span><span class="pe-cal">320 cal</span></div>
-        <div class="phone-entry thinking"><span>2/3 chicken bowl from Chipotle</span><span class="pe-thinking">Thinking…</span></div>
-        <div class="phone-entry"><span>🧃 Iced latte oat milk</span><span class="pe-cal">180 cal</span></div>
-        <div class="phone-entry new"><span>💬 Type your next meal…</span></div>
-      </div>
-      <div class="phone-bar">
-        <span>🔥 841</span>
-        <span>🥩 P 51</span>
-        <span>🌾 C 89</span>
-        <span>🫐 F 37</span>
-      </div>
-    </div>
-    <!-- floating blobs -->
-    <div class="float-blob fb1">🥑</div>
-    <div class="float-blob fb2">🍓</div>
-    <div class="float-blob fb3">💧</div>
-    <div class="float-blob fb4">🥦</div>
-  </div>
-</section>
 
-<!-- HOW IT WORKS -->
-<section class="how section" id="how">
-  <div class="container">
-    <div class="sec-head">
-      <span class="sec-tag">How it works</span>
-      <h2>Calorie tracking as easy as<br/>Apple Notes ✏️</h2>
-    </div>
-    <div class="steps-row">
-      <div class="step-card">
-        <div class="step-blob step-blob--yellow">
-          <span class="blob-face">✏️</span>
+  <div class="hero-mockup-wrap">
+    <div class="phone-container">
+      <div class="phone-screen">
+        <div class="phone-header">
+          <span>Today</span>
+          <span style="color:#FF9500">🔥 5</span>
         </div>
-        <div class="step-num">01</div>
-        <h3>Type what you ate</h3>
-        <p>Just jot down your meal naturally — "pasta with chicken" or "grande oat latte from Starbucks"</p>
-      </div>
-      <div class="step-arrow">→</div>
-      <div class="step-card">
-        <div class="step-blob step-blob--blue">
-          <span class="blob-face">🔍</span>
+        <div style="font-size:1.4rem; font-weight:800; margin-bottom:16px;">1,240 <small style="font-size:0.6rem; color:#888;">kcal left</small></div>
+        <div class="phone-item">
+          <span>Oatmeal with berries</span>
+          <span class="p-cal">320</span>
         </div>
-        <div class="step-num">02</div>
-        <h3>Folthy searches</h3>
-        <p>We instantly find the nutritional info from 500,000+ foods and restaurants</p>
-      </div>
-      <div class="step-arrow">→</div>
-      <div class="step-card">
-        <div class="step-blob step-blob--green">
-          <span class="blob-face">✨</span>
+        <div class="phone-item" style="border: 1px dashed #ccc; background:none;">
+          <span style="color:#aaa;">Type what you ate...</span>
         </div>
-        <div class="step-num">03</div>
-        <h3>Calories calculated</h3>
-        <p>See your totals and macros automatically updated. No barcode scanning needed!</p>
+        <div class="phone-item">
+          <span>Chicken Burrito Bowl</span>
+          <span class="p-cal">640</span>
+        </div>
+        <div style="margin-top:20px; display:flex; gap:8px;">
+          <div style="flex:1; height:4px; background:#34C759; border-radius:2px;"></div>
+          <div style="flex:1; height:4px; background:#FF9500; border-radius:2px;"></div>
+          <div style="flex:1; height:4px; background:#007AFF; border-radius:2px;"></div>
+        </div>
       </div>
     </div>
   </div>
-</section>
-
-<!-- MOOD + FOOD -->
-<section class="mood-section section" id="mood">
-  <div class="container">
-    <div class="sec-head">
-      <span class="sec-tag">Mood × Food 💬</span>
-      <h2>How you eat affects<br/>how you feel 🫶</h2>
-      <p>Log your mood alongside every meal to discover patterns between your food choices and energy levels.</p>
-    </div>
-    <div class="mood-grid">
-      <div class="mood-blob" data-mood="happy" style="--c:#FFB3C6">
-        <div class="mb-shape">
-          <svg viewBox="0 0 100 100"><path d="M50,5 C70,5 90,20 92,45 C95,70 75,95 50,95 C25,95 5,70 8,45 C10,20 30,5 50,5Z" fill="currentColor"/><circle cx="36" cy="44" r="4" fill="#1a1a1a"/><circle cx="64" cy="44" r="4" fill="#1a1a1a"/><path d="M36,62 Q50,74 64,62" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
-        </div>
-        <span>Happy 😊</span>
-      </div>
-      <div class="mood-blob" data-mood="energized" style="--c:#FFD93D">
-        <div class="mb-shape">
-          <svg viewBox="0 0 100 100"><path d="M50,5 C72,8 95,25 90,52 C85,78 68,95 50,95 C32,95 10,78 10,52 C10,25 28,2 50,5Z" fill="currentColor"/><circle cx="38" cy="42" r="4" fill="#1a1a1a"/><circle cx="62" cy="42" r="4" fill="#1a1a1a"/><path d="M38,64 Q50,72 62,64" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
-        </div>
-        <span>Energized ⚡</span>
-      </div>
-      <div class="mood-blob" data-mood="calm" style="--c:#B5EAD7">
-        <div class="mb-shape">
-          <svg viewBox="0 0 100 100"><path d="M50,8 C68,5 92,22 92,50 C92,78 70,95 50,95 C30,95 8,78 8,50 C8,22 32,11 50,8Z" fill="currentColor"/><line x1="34" y1="44" x2="44" y2="44" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/><line x1="56" y1="44" x2="66" y2="44" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/><path d="M40,62 Q50,68 60,62" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
-        </div>
-        <span>Calm 🌿</span>
-      </div>
-      <div class="mood-blob" data-mood="tired" style="--c:#C7CEEA">
-        <div class="mb-shape">
-          <svg viewBox="0 0 100 100"><path d="M50,10 C72,10 90,28 90,50 C90,72 72,92 50,92 C28,92 10,72 10,50 C10,28 28,10 50,10Z" fill="currentColor"/><path d="M32,42 Q38,38 44,42" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M56,42 Q62,38 68,42" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/><line x1="38" y1="63" x2="62" y2="63" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/></svg>
-        </div>
-        <span>Tired 😴</span>
-      </div>
-      <div class="mood-blob" data-mood="stressed" style="--c:#FF9AA2">
-        <div class="mb-shape">
-          <svg viewBox="0 0 100 100"><path d="M50,8 C74,8 94,26 92,52 C90,76 72,94 50,94 C28,94 8,78 8,52 C8,26 26,8 50,8Z" fill="currentColor"/><path d="M32,44 Q38,40 44,44" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M56,44 Q62,40 68,44" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M38,66 Q50,58 62,66" stroke="#1a1a1a" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
-        </div>
-        <span>Stressed 😤</span>
-      </div>
-      <div class="mood-blob" data-mood="focused" style="--c:#FFDAC1">
-        <div class="mb-shape">
-          <svg viewBox="0 0 100 100"><path d="M50,6 C70,6 92,24 92,50 C92,76 72,94 50,94 C28,94 8,76 8,50 C8,24 30,6 50,6Z" fill="currentColor"/><circle cx="38" cy="44" r="5" fill="#1a1a1a"/><circle cx="62" cy="44" r="5" fill="#1a1a1a"/><line x1="38" y1="64" x2="62" y2="64" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round"/></svg>
-        </div>
-        <span>Focused 🎯</span>
-      </div>
-    </div>
-    <a href="app.html" class="btn-main" style="margin-top:40px;display:inline-block">Log mood + food →</a>
-  </div>
-</section>
+</header>
 
 <!-- FEATURES -->
-<section class="features section" id="features">
-  <div class="container">
-    <div class="sec-head">
-      <span class="sec-tag">Features</span>
-      <h2>Everything your<br/>gut needs 🫀</h2>
+<section class="section container" id="features">
+  <div class="sec-head">
+    <h2>Elegance in every log.</h2>
+    <p>We believe tracking your food should be as secondary as checking the time. Designed to disappear.</p>
+  </div>
+  
+  <div class="feat-grid">
+    <div class="feat-card">
+      <span class="fc-icon">🖋️</span>
+      <h3>Natural Entry</h3>
+      <p>Type like a human. Our intelligence understands "A bowl of Greek yogurt with honey" instantly.</p>
     </div>
-    <div class="feat-grid">
-      <div class="feat-card fc--coral">
-        <div class="fc-icon">📝</div>
-        <h3>Notes-style logging</h3>
-        <p>Type meals naturally. No barcode scanning, no searching through endless dropdowns.</p>
-      </div>
-      <div class="feat-card fc--yellow">
-        <div class="fc-icon">🧮</div>
-        <h3>Auto macro calc</h3>
-        <p>Calories, protein, carbs and fat auto-calculated the moment you press enter.</p>
-      </div>
-      <div class="feat-card fc--green">
-        <div class="fc-icon">🎯</div>
-        <h3>Daily goals</h3>
-        <p>Set your calorie and macro targets. Watch the rings fill up throughout the day.</p>
-      </div>
-      <div class="feat-card fc--blue">
-        <div class="fc-icon">😊</div>
-        <h3>Mood tracking</h3>
-        <p>Log how you feel after each meal to discover what foods make you thrive.</p>
-      </div>
-      <div class="feat-card fc--pink">
-        <div class="fc-icon">🔥</div>
-        <h3>Streaks & habits</h3>
-        <p>Build consistency with streak tracking and daily habit reminders.</p>
-      </div>
-      <div class="feat-card fc--lav">
-        <div class="fc-icon">📊</div>
-        <h3>Weekly insights</h3>
-        <p>See patterns in your eating. Know which days you nail it and which need work.</p>
-      </div>
+    <div class="feat-card">
+      <span class="fc-icon">☁️</span>
+      <h3>Cloud Sync</h3>
+      <p>Your data follows you everywhere. Securely stored and always up to date across all your devices.</p>
+    </div>
+    <div class="feat-card">
+      <span class="fc-icon">📊</span>
+      <h3>Deep Insights</h3>
+      <p>Trends that actually matter. Understand how your nutrition impacts your energy and mood over time.</p>
+    </div>
+    <div class="feat-card">
+      <span class="fc-icon">🔒</span>
+      <h3>Privacy First</h3>
+      <p>Your food choices are personal. Folthy is built with industry-standard encryption to keep your data yours.</p>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="cta-section">
-  <div class="cta-blob cta-blob--1">🍎</div>
-  <div class="cta-blob cta-blob--2">🥦</div>
-  <div class="cta-blob cta-blob--3">🍊</div>
-  <div class="container">
-    <div class="cta-mascot">
-      <svg viewBox="0 0 120 120" width="100" height="100">
-        <path d="M60,6 C85,6 110,28 108,58 C106,86 84,114 60,114 C36,114 14,86 12,58 C10,28 35,6 60,6Z" fill="#FFB3C6"/>
-        <circle cx="44" cy="54" r="6" fill="#1a1a1a"/>
-        <circle cx="76" cy="54" r="6" fill="#1a1a1a"/>
-        <circle cx="46" cy="52" r="2" fill="white"/>
-        <circle cx="78" cy="52" r="2" fill="white"/>
-        <path d="M44,76 Q60,88 76,76" stroke="#1a1a1a" stroke-width="4" fill="none" stroke-linecap="round"/>
-      </svg>
+<!-- EXPERIENCE SECTION -->
+<section class="section" id="how" style="background:var(--secondary-bg);">
+  <div class="container" style="text-align:center;">
+    <div class="sec-head">
+      <h2>The easiest way to track.</h2>
     </div>
-    <h2>Ready to eat better?<br/>Let's go! 🚀</h2>
-    <p>Join thousands tracking smarter with Folthy — it's completely free.</p>
-    <a href="app.html" class="btn-main btn-main--white">Start tracking now →</a>
+    <div style="max-width:800px; margin:0 auto; display:grid; grid-template-columns: 1fr 1fr 1fr; gap:40px;">
+      <div>
+        <h4 style="font-size:1.2rem; margin-bottom:8px;">01. Note</h4>
+        <p style="color:var(--text-secondary); font-size:0.9rem;">Jot down your meal in simple words.</p>
+      </div>
+      <div>
+        <h4 style="font-size:1.2rem; margin-bottom:8px;">02. Resolve</h4>
+        <p style="color:var(--text-secondary); font-size:0.9rem;">Folthy calculates macros and calories instantly.</p>
+      </div>
+      <div>
+        <h4 style="font-size:1.2rem; margin-bottom:8px;">03. Insight</h4>
+        <p style="color:var(--text-secondary); font-size:0.9rem;">Visualize your progress with clean, helpful charts.</p>
+      </div>
+    </div>
+    <div style="margin-top:60px;">
+      <a href="app.html" class="btn-lg btn-primary">Experience Folthy Now</a>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <span class="logo-blob-sm">🥗</span>
-      <strong>Folthy</strong>
-      <p>Your calorie bestie. Built with ❤️ for the AMD Slingshot Challenge.</p>
-    </div>
+  <div class="container">
     <div class="footer-links">
-      <a href="app.html">App</a>
-      <a href="#how">How it works</a>
       <a href="#features">Features</a>
+      <a href="#how">Experience</a>
+      <a href="app.html">Dashboard</a>
       <a href="#">Privacy</a>
+      <a href="#">Support</a>
     </div>
+    <p>Copyright © 2026 Folthy Inc. All rights reserved.</p>
+    <p style="margin-top:8px;">Built for the AMD Slingshot Challenge with ❤️</p>
   </div>
-  <p class="footer-copy">© 2026 Folthy · Made with 🥦 and 🤖</p>
 </footer>
 
-<script src="scripts/main.js"></script>
+<script>
+  // Simple scroll effect for nav
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.nav');
+    if (window.scrollY > 50) {
+      nav.style.width = '95%';
+      nav.style.top = '10px';
+    } else {
+      nav.style.width = '90%';
+      nav.style.top = '20px';
+    }
+  });
+</script>
+
 </body>
 </html>
